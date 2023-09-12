@@ -5,16 +5,6 @@ const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
 
-const Parse = require('parse/node');
-
-Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
-// Remember to inform BOTH the Back4App Application ID AND the JavaScript KEY
-Parse.initialize(
-  'rIpHbUODDzVzg2jN67SjVbJoefAmlL6ohlqMaIZN', // This is your Application ID
-  'IhHvbdrgwMk30gOlcNWVZIHn1nJCVLbSNEwvD02V', // This is your Javascript key
-  '2VuVWO8JelZw8O6nID1hZBZp7zcMfPqMqxgy1dLA' // This is your Master key (never use it in the frontend)
-)
-
 // express app
 const app = express()
 
