@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "ultimate Calculator"
+    },
+    "ultimate Calculator": {
+      "applicationId": "rIpHbUODDzVzg2jN67SjVbJoefAmlL6ohlqMaIZN"
+    }
+  }
+}
