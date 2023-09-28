@@ -14,8 +14,15 @@ app.use(express.json())
 app.use((req, res, next) => {
   console.log(req.path, req.method)
   res.setHeader("Access-Control-Allow-Origin","*")
-  res.setHeader("Access-Control-Allow-Methods","POST, GET, PUT, DELETE")
-  res.setHeader("Access-Control-Allow-Headers","Content-Type")
+  res.setHeader("Access-Control-Allow-Methods","POST, GET, PUT,PATCH, DELETE")
+  res.setHeader("Access-Control-Allow-Credentials", true)
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version, Content-Type")
+  if (req.method === "OPTIONS") {
+    res.status(200).end()
+    return
+  }
   next()
 })
 // routes
