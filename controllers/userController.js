@@ -71,7 +71,7 @@ const updateUser1 = async (req, res) => {
     emptyFields.push('query')
   }
   if(emptyFields.length > 0) {
-    return res.status(400).json({ error: 'Please fill in all the fields'})
+    return res.status(400).json({ error: 'Please fill in all the fields', emptyFields})
   }
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -117,7 +117,7 @@ const updateUser = async (req, res) => {
   }
 
   if(emptyFields.length > 0) {
-    return res.status(400).json({ error: 'Please fill in all the fields'})
+    return res.status(400).json({ error: 'Please fill in all the fields', emptyFields})
   }
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
