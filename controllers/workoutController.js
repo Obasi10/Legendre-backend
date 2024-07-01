@@ -1,10 +1,10 @@
-const Calculation = require('../models/workoutModel')
+const Calculate = require('../models/workoutModel')
 const mongoose = require('mongoose')
 
 // get all workouts
 const getWorkouts = async (req, res) => {
   const user_id = req.user._id
-  const calculation = await Calculation.find({user_id}).sort({createdAt: -1})
+  const calculation = await Calculate.find({user_id}).sort({createdAt: -1})
   res.status(200).json(calculation)
 }
 
@@ -16,7 +16,7 @@ const getWorkout = async (req, res) => {
     return res.status(404).json({error: 'No such profile'})
   }
 
-  const calculation = await Calculation.findById(id)
+  const calculation = await Calculate.findById(id)
 
   if (!calculation) {
     return res.status(404).json({error: 'No such profile'})
@@ -28,24 +28,12 @@ const getWorkout = async (req, res) => {
 
 // create new workout
 const createWorkout = async (req, res) => {
-  const {title, details} = req.body
-
-  let emptyFields = []
-
-  if(!title) {
-    emptyFields.push('title')
-  }
-  if(!details) {
-    emptyFields.push('details')
-  }
-  if(emptyFields.length > 0) {
-    return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
-  }
+  const {title, detail1, detail2, detail3} = req.body
 
   // add doc to db
   try {
     const user_id = req.user._id
-    const calculation = await Calculation.create({title, details, user_id})
+    const calculation = await Calculate.create({title, detail1, detail2, detail3, user_id})
     res.status(200).json(calculation)
   } catch (error) {
     res.status(400).json({error: error.message})
@@ -59,7 +47,7 @@ const deleteWorkout = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such profile'})
   }
-  const calculation = await Calculation.findOneAndDelete({_id: id})
+  const calculation = await Calculate.findOneAndDelete({_id: id})
 
   if (!calculation) {
     return res.status(400).json({error: 'No such profile'})
@@ -76,7 +64,7 @@ const updateWorkout = async (req, res) => {
     return res.status(404).json({error: 'No such profile'})
   }
 
-  const calculation = await Calculation.findOneAndUpdate({_id: id}, {
+  const calculation = await Calculate.findOneAndUpdate({_id: id}, {
     ...req.body
   })
 
