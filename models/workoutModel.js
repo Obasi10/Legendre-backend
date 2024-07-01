@@ -2,11 +2,17 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const CalculationSchema = new Schema({
+const CalculateSchema = new Schema({
   title: {
     type: String,
   },
-  details: {
+  detail1: {
+    type: Number,
+  },
+  detail2: {
+    type: Number,
+  },
+  detail3: {
     type: Number,
   },
   user_id: {
@@ -19,4 +25,4 @@ const CalculationSchema = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Calculation', CalculationSchema)
+module.exports = mongoose.model('Calculate', CalculateSchema)
