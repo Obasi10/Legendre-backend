@@ -5,9 +5,11 @@ const Schema = mongoose.Schema
 const CalculateSchema = new Schema({
   title: {
     type: String,
+    required: true
   },
   detail1: {
     type: Number,
+    required: true
   },
   detail2: {
     type: Number,
