@@ -13,9 +13,11 @@ const CalculateSchema = new Schema({
   },
   detail2: {
     type: Number,
+    required: true
   },
   detail3: {
     type: Number,
+    required: true
   },
   user_id: {
     type: String,
