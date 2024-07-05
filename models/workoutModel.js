@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const CalculateSchema = new Schema({
+const CalculatedSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -29,4 +29,4 @@ const CalculateSchema = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Calculate', CalculateSchema)
+module.exports = mongoose.model('Calculate', CalculatedSchema)
