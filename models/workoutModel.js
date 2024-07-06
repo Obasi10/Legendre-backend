@@ -9,15 +9,12 @@ const CalculatedSchema = new Schema({
   },
   detail1: {
     type: Number,
-    required: true
   },
   detail2: {
     type: Number,
-    required: true
   },
   detail3: {
     type: Number,
-    required: true
   },
   user_id: {
     type: String,
