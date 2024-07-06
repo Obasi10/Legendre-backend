@@ -9,6 +9,7 @@ const CalculatedSchema = new Schema({
   },
   detail1: {
     type: Number,
+    required: true
   },
   detail2: {
     type: Number,
