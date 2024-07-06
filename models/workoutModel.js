@@ -29,4 +29,4 @@ const CalculatedSchema = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Calculate', CalculatedSchema)
+module.exports = mongoose.model('Calculated', CalculatedSchema)
